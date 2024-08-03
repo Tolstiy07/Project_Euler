@@ -6,4 +6,17 @@
 
 
 Сколько существует таких маршрутов в сетке 20×20?
+
 '''
+l = 100
+list_1 = []
+for x in range(l+1):
+	list_1.append(1)
+for i in range(l):
+	list_2 =[1,]
+	k=0
+	for x in range(l):
+		list_2.append(list_2[k]+list_1[k+1])
+		k +=1
+	list_1 = list_2
+print(list_1[-1])
