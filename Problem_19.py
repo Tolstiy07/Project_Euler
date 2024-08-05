@@ -12,3 +12,25 @@
 Сколько воскресений выпадает на первое число месяца в двадцатом веке 
 (с 1 января 1901 года до 31 декабря 2000 года)?
 '''
+
+cost_sunday = 0
+x=365
+mon = 1
+mon = ((x+mon)-((x+mon)//7)*7)
+print(mon)
+for year in range(1901,2001):
+	if year%4 ==  0 and year != 1900:
+		list_days = [31,29,31,30,31,30,31,31,30,31,30,31]
+	else:
+		list_days = [31,28,31,30,31,30,31,31,30,31,30,31]
+	for day in range(12):
+		x = list_days[day]
+		mon = ((x+mon)-((x+mon)//7)*7)
+		# print(mon)
+		if mon == 0 and year != 1900:
+			cost_sunday += 1
+			if day+2 == 13:
+				year +=1
+				day = -1
+			print(f"01-{day+2}-{year}")
+print(cost_sunday)
