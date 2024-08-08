@@ -14,6 +14,10 @@
 
 Какова миллионная словарная перестановка из цифр 0, 1, 2, 3, 4, 5, 6, 7, 8 и 9?
 '''
+import time
+
+start_time = time.time()
+
 num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 cont = 0
 for i in range(len(num)):
@@ -57,4 +61,8 @@ for i in range(len(num)):
 									if cont == 1000000:
 										print("Mиллионная словарная перестановка из ")
 										print(f"цифр 0, 1, 2, 3, 4, 5, 6, 7, 8 и 9 - {res_1 + res_2 + res_3 + res_4 + res_5 + res_6 + res_7 + res_8 + res_9 + str(num0[0])}")
+
+										end_time = time.time()
+										execution_time = end_time - start_time
+										print(f" Время выполнения программы {round(execution_time,2)} секунд")
 										exit()
