@@ -22,6 +22,10 @@
 длинную повторяющуюся последовательность цифр.
 
 '''
+from time import time
+
+start = time()
+
 
 def traditional():
     start = 2
@@ -29,10 +33,10 @@ def traditional():
     max_num = 1
     max_cycle = 1
 
-    for d in range(start, limit+1):
+    for d in range(start, limit + 1):
         n = 1
         while n < d:
-            x = 10**n - 1
+            x = 10 ** n - 1
             if x % d == 0:
                 break
             n += 1
@@ -43,38 +47,9 @@ def traditional():
 
     return max_num, max_cycle
 
-print (traditional())
 
-#####################################################
-def func():
-    for num in range(2,1001):
-            i = 1
-            i1 = 1
+print(traditional())
 
-            arr = ''
-            while i1 <= num:
-                if i//num ==0:
-                    i *=10
-                    if len(arr)==0:
-                        arr += '0,'
-                    else:
-                        arr += '0'
-                else:
-                    res = i//num
-                    arr += str(res)
-                    if i//num == i/num or len(arr)==num:
-                        break
-                    i = i%num * 10
-                if arr[-1] == arr[-2] and arr[-3] == arr[-2]:
-                    break 
-                i1 +=1
-            while arr[-2:] == arr[-4:-2] and arr[-6:-4] == arr[-4:-2]:
-                arr = arr[:-2]
-            print(num, "The END:",(arr))
-            print(len(arr))
-        print(1/998)
+finish = time()
 
-#256
-#'1798561151079136690647482014388489208633093525'
-
-#'17953321364452423698384201077199281867145421903052064631956912028725314183123877917414721723518850987432675044883303411    
+print(f"Время работы программы {finish-start} секунд")
