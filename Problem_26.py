@@ -24,32 +24,37 @@
 '''
 from time import time
 
-start = time()
+def main():
+
+    start = time()
 
 
-def traditional():
-    start = 2
-    limit = 1000
-    max_num = 1
-    max_cycle = 1
+    def traditional():
+        start = 2
+        limit = 1000
+        max_num = 1
+        max_cycle = 1
 
-    for d in range(start, limit + 1):
-        n = 1
-        while n < d:
-            x = 10 ** n - 1
-            if x % d == 0:
-                break
-            n += 1
-        if n != d:
-            if n > max_cycle:
-                max_cycle = n
-                max_num = d
+        for d in range(start, limit + 1):
+            n = 1
+            while n < d:
+                x = 10 ** n - 1
+                if x % d == 0:
+                    break
+                n += 1
+            if n != d:
+                if n > max_cycle:
+                    max_cycle = n
+                    max_num = d
 
-    return max_num, max_cycle
+        return max_num, max_cycle
 
 
-print(traditional())
+    print(traditional())
 
-finish = time()
+    finish = time()
 
-print(f"Время работы программы {finish-start} секунд")
+    print(f"Время работы программы {round(finish-start, 2)} секунд")
+
+if __name__ == "__main__":
+    main()
