@@ -16,6 +16,13 @@ from time import time
 def main():
 	start = time()
 
+	str_ = ''
+	for x in range(1000000):
+		str_ += str(x)
+	
+	res = int(str_[1]) * int(str_[10]) * int(str_[100]) * int(str_[1000]) * int(str_[10000]) * int(str_[100000]) * int(str_[1000000]) 
+	print(res)
+
 	
 	print(f"Program running time {round(time()-start,2)} sec.")
 if __name__=="__main__":
