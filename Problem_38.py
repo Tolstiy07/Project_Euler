@@ -16,3 +16,33 @@
 Какое самое большое девятизначное пан-цифровое число можно образовать как объединенное 
 произведение целого числа и (1,2, ... , n), где n > 1?
 '''
+from time import time
+
+def main():
+	start = time()
+
+	max_ = 0
+
+	for x in range(1,10000):
+		k =1
+		str_ = ''
+		while True:
+			res = k *x
+			str_ += str(res)
+			if len(str_)< 9:
+				k +=1
+			elif len(str_)==9:
+				if len(str_) == len(set(str_)) and "0" not in list(str_):
+
+					if int(str_) > max_:
+						max_ = int(str_)
+						max_x = x
+						max_k = k
+			else:
+				break
+
+	print(f"""{max_} - самое большое девятизначное пан-цифровое число можно образовать как объединенное 
+произведение целого числа {max_x} и n={max_k}""")
+	print(f"Program running time {round(time()-start,2)} sec.")
+if __name__=="__main__":
+	main()

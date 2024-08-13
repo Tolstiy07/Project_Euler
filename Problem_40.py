@@ -11,3 +11,12 @@
 
 d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 '''
+from time import time
+
+def main():
+	start = time()
+
+	
+	print(f"Program running time {round(time()-start,2)} sec.")
+if __name__=="__main__":
+	main()
