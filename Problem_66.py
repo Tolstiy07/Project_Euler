@@ -25,8 +25,34 @@ x2 – Dy2 = 1
 '''
 from time import time
 
+def pell_equation(n):
+    a0 = int(n**0.5)
+    a1 = int(2*a0/(n-a0**2)) 
+    line,x,y = [a0,a1],[a0,a1*a0+1],[1,a1]
+    m,d = a0,n-a0**2
+    while line[-1] != 2*a0:
+        m = d*line[-1]-m
+        d = (n-m**2)//d
+        line.append(int((a0+m)/d))
+        x.append(line[-1]*x[-1]+x[-2])
+        y.append(line[-1]*y[-1]+y[-2])
+    if (len(line)-1) % 2 == 0:
+        return (x[-2],y[-2])
+    else:
+        return (x[-2]**2+y[-2]**2*n,2*x[-2]*y[-2])
+
+
 def main():
     start = time()
+    n=1000
+    dic = {}
+    for i in range(8,n+1):
+        if int(i**0.5)**2 == i:
+            continue
+        else:
+            dic[i] = pell_equation(i)[0]
+    print(f"{max(dic,key=dic.get)} - значение D когда D≤ 1000 для минимальных решений x, при котором получено наибольшее значение x")
+
 
     print(f"Program running time {round(time() - start, 2)} sec.")
 
