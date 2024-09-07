@@ -24,10 +24,30 @@ n   Взаимно простые числа   φ(n)    n/φ(n)
 '''
 from time import time
 
+
+def func(n):
+    if n == 2:
+        return True
+    elif n <= 1 or n % 2 == 0:
+        return False
+    for x in range(3, int(n ** .5) + 1, 2):
+        if n % x == 0:
+            return False
+    return True
+
+
 def main():
     start = time()
-
+    n = 1_000_000
+    i, res, arr = 1, 1, []
+    while res <= n:
+        if func(i):
+            res *= i
+            arr.append(res)
+        i += 1
+    print(f"{arr[-2]} - значение n ≤ 1 000 000, при котором значение n/φ(n) максимально")
     print(f"Program running time {round(time() - start, 2)} sec.")
+
 
 if __name__ == "__main__":
     main()
